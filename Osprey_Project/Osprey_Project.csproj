@@ -1,0 +1,108 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="1.jpg" />
+    <None Remove="12.jpg" />
+    <None Remove="2.jpg" />
+    <None Remove="3.jpg" />
+    <None Remove="4.jpg" />
+    <None Remove="5.jpg" />
+    <None Remove="6 months.png" />
+    <None Remove="6.jpg" />
+    <None Remove="7.jpg" />
+    <None Remove="8.jpg" />
+    <None Remove="9.jpg" />
+    <None Remove="athelete_img.jpg" />
+    <None Remove="college1.jpeg" />
+    <None Remove="college1_img.jpg" />
+    <None Remove="college2.jpg" />
+    <None Remove="Collegebg.jpg" />
+    <None Remove="college_img.jpg" />
+    <None Remove="contactpage.jpg" />
+    <None Remove="contactpage2.jpg" />
+    <None Remove="download-removebg-preview.png" />
+    <None Remove="download.jpeg" />
+    <None Remove="entertain1.jpg" />
+    <None Remove="entertaingirl.jpg" />
+    <None Remove="entertainment.jpg" />
+    <None Remove="entertainment1.jpeg" />
+    <None Remove="entertainment2.jpeg" />
+    <None Remove="ex1.jpeg" />
+    <None Remove="ex2.jpeg" />
+    <None Remove="ex3.jpg" />
+    <None Remove="freepik__the-style-is-candid-image-photography-with-natural__59854.jpeg" />
+    <None Remove="freepik__the-style-is-candid-image-photography-with-natural__80126.jpeg" />
+    <None Remove="gettyimages-1591572504-612x612.jpg" />
+    <None Remove="homebg.jpg" />
+    <None Remove="logo-removebg-preview.png" />
+    <None Remove="members.jpeg" />
+    <None Remove="members.png" />
+    <None Remove="month.png" />
+    <None Remove="Osprey bg.jpeg" />
+    <None Remove="Osprey bg.jpg" />
+    <None Remove="Plan.jpg" />
+    <None Remove="plan1.jpg" />
+    <None Remove="Screenshot 2025-02-18 235101.png" />
+    <None Remove="strong-women-quotes-3a-e1554163775231.jpg" />
+    <None Remove="three month.png" />
+    <None Remove="year.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="LiteDB" Version="5.0.21" />
+    <PackageReference Include="MongoDB.Driver" Version="3.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="1.jpg" />
+    <Resource Include="12.jpg" />
+    <Resource Include="2.jpg" />
+    <Resource Include="3.jpg" />
+    <Resource Include="4.jpg" />
+    <Resource Include="5.jpg" />
+    <Resource Include="6.jpg" />
+    <Resource Include="7.jpg" />
+    <Resource Include="8.jpg" />
+    <Resource Include="9.jpg" />
+    <Resource Include="athelete_img.jpg" />
+    <Resource Include="college1.jpeg" />
+    <Resource Include="college1_img.jpg" />
+    <Resource Include="college2.jpg" />
+    <Resource Include="Collegebg.jpg" />
+    <Resource Include="college_img.jpg" />
+    <Resource Include="contactpage.jpg" />
+    <Resource Include="contactpage2.jpg" />
+    <Resource Include="download-removebg-preview.png" />
+    <Resource Include="download.jpeg" />
+    <Resource Include="entertain1.jpg" />
+    <Resource Include="entertaingirl.jpg" />
+    <Resource Include="entertainment.jpg" />
+    <Resource Include="entertainment1.jpeg" />
+    <Resource Include="entertainment2.jpeg" />
+    <Resource Include="ex1.jpeg" />
+    <Resource Include="ex2.jpeg" />
+    <Resource Include="ex3.jpg" />
+    <Resource Include="freepik__the-style-is-candid-image-photography-with-natural__59854.jpeg" />
+    <Resource Include="freepik__the-style-is-candid-image-photography-with-natural__80126.jpeg" />
+    <Resource Include="gettyimages-1591572504-612x612.jpg" />
+    <Resource Include="homebg.jpg" />
+    <Resource Include="logo-removebg-preview.png" />
+    <Resource Include="members.jpeg" />
+    <Resource Include="Osprey bg.jpeg" />
+    <Resource Include="Osprey bg.jpg" />
+    <Resource Include="Plan.jpg" />
+    <Resource Include="plan1.jpg" />
+    <Resource Include="Screenshot 2025-02-18 235101.png" />
+    <Resource Include="strong-women-quotes-3a-e1554163775231.jpg" />
+  </ItemGroup>
+
+</Project>

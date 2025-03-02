@@ -1,0 +1,432 @@
+﻿<Page x:Class="Osprey_Project.HomePage"
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+Background="#1A1A2E">
+    <Page.Resources>
+        <SolidColorBrush x:Key="PrimaryColor" Color="#1A1A2E"/>
+        <SolidColorBrush x:Key="TextColor" Color="#F0F0F0"/>
+        <SolidColorBrush x:Key="AccentColor" Color="#0F4B6E"/>
+        <SolidColorBrush x:Key="CardBackgroundColor" Color="#FFFFFF"/>
+        <SolidColorBrush x:Key="CardDetailsBackgroundColor" Color="#F5F5F5"/>
+
+        <!-- Button Hover Effect -->
+        <Style x:Key="LearnMoreButtonStyle" TargetType="ToggleButton">
+            <Setter Property="Background" Value="#0F4B6E"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#1A1A2E"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#1A1A2E"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Animation for Expanding/Collapsing Cards -->
+        <Storyboard x:Key="ExpandCard">
+            <DoubleAnimation Storyboard.TargetProperty="Height" To="400" Duration="0:0:0.3"/>
+        </Storyboard>
+        <Storyboard x:Key="CollapseCard">
+            <DoubleAnimation Storyboard.TargetProperty="Height" To="300" Duration="0:0:0.3"/>
+        </Storyboard>
+
+        <!-- Card Hover Effect -->
+        <Style x:Key="CardHoverStyle" TargetType="Border">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Width" Value="250"/>
+            <Setter Property="Height" Value="300"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black" ShadowDepth="0" BlurRadius="10"/>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" To="1.05" Duration="0:0:0.2"/>
+                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" To="1.05" Duration="0:0:0.2"/>
+                                <ColorAnimation Storyboard.TargetProperty="Effect.Color" To="#0F4B6E" Duration="0:0:0.2"/>
+                                <DoubleAnimation Storyboard.TargetProperty="Effect.ShadowDepth" To="5" Duration="0:0:0.2"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                    <Trigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" To="1" Duration="0:0:0.2"/>
+                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" To="1" Duration="0:0:0.2"/>
+                                <ColorAnimation Storyboard.TargetProperty="Effect.Color" To="Black" Duration="0:0:0.2"/>
+                                <DoubleAnimation Storyboard.TargetProperty="Effect.ShadowDepth" To="0" Duration="0:0:0.2"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.ExitActions>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Custom TextBox Style with Corner Radius -->
+        <Style x:Key="RoundedTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Background" Value="White" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="{TemplateBinding Background}"
+CornerRadius="5"
+BorderThickness="{TemplateBinding BorderThickness}"
+BorderBrush="{TemplateBinding BorderBrush}">
+                            <ScrollViewer x:Name="PART_ContentHost" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Animation for Expanding/Collapsing Chatbot Panel -->
+        <Storyboard x:Key="ExpandChatbot">
+            <DoubleAnimation Storyboard.TargetProperty="Width" To="400" Duration="0:0:0.3" />
+        </Storyboard>
+        <Storyboard x:Key="CollapseChatbot">
+            <DoubleAnimation Storyboard.TargetProperty="Width" To="0" Duration="0:0:0.3" />
+        </Storyboard>
+    </Page.Resources>
+
+    <Grid>
+        <!-- Main Content Column -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1317*" />
+            <ColumnDefinition Width="83*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- ScrollViewer for Main Content -->
+        <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="500"/>
+                    <!-- Hero Section -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- Events Section -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- Features Section -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- Testimonials Section -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- Call to Action -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- Footer Section -->
+                </Grid.RowDefinitions>
+
+                <!-- Hero Section with Image Slider -->
+                <Grid Grid.Row="0">
+                    <Image x:Name="ImageSlider" Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="1"/>
+
+                    <TextBlock Text="Welcome to Osprey"
+                    Foreground="Goldenrod" FontSize="50" FontWeight="Bold"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
+
+                <!-- Events Section -->
+                <StackPanel Grid.Row="1" Background="#0F4B6E" Margin="10,0,-10,40">
+                    <TextBlock Text="Explore Our Events" FontSize="36" Foreground="White"
+                    FontWeight="Bold" HorizontalAlignment="Center" Margin="0,20,0,20"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <!-- Event 1: Women in Leadership Workshop -->
+                        <Border x:Name="Event1Card" Style="{StaticResource CardHoverStyle}" Background="#FF6F61">
+                            <ScrollViewer x:Name="Event1ScrollViewer" VerticalScrollBarVisibility="Auto">
+                                <StackPanel VerticalAlignment="Center" Margin="10">
+                                    <TextBlock Text="👩‍💼 Women in Leadership Workshop" FontSize="18" Foreground="Black"
+                                    TextAlignment="Center" TextWrapping="Wrap" Padding="10" FontWeight="Bold"/>
+                                    <TextBlock Text="Join us for an inspiring workshop on leadership skills for women."
+                                    FontSize="14" Foreground="Black" TextAlignment="Center" TextWrapping="Wrap" Padding="10"/>
+                                    <ToggleButton x:Name="LearnMoreButton1" Content="Learn More" Style="{StaticResource LearnMoreButtonStyle}"
+                                    HorizontalAlignment="Center" Margin="0,10,0,0" Checked="LearnMoreButton_Checked" Unchecked="LearnMoreButton_Unchecked"/>
+                                    <!-- Additional Details (Hidden by Default) -->
+                                    <StackPanel x:Name="AdditionalDetails1" Visibility="Collapsed" Margin="0,10,0,0" Background="{StaticResource CardDetailsBackgroundColor}">
+                                        <TextBlock Text="Empower your leadership potential and enhance your skills at our Women in Leadership Workshop, where innovation meets inspiration and you'll gain the tools, resources, and network you need to excel." FontSize="14" Foreground="Black" TextAlignment="Center" Padding="10" TextWrapping="Wrap"/>
+                                        <TextBlock Text="📅 Date: October 15, 2023" FontSize="14" Foreground="Black" TextAlignment="Center" Padding="10" TextWrapping="Wrap"/>
+                                        <TextBlock Text="🕒 Time: 10:00 AM - 2:00 PM" FontSize="14" Foreground="Black" TextAlignment="Center" Padding="10" TextWrapping="Wrap"/>
+                                        <TextBlock Text="📍 Location: Osprey HQ, New York" FontSize="14" Foreground="Black" TextAlignment="Center" Padding="10" TextWrapping="Wrap"/>
+                                        <TextBlock Text="💡 Topics: Leadership, Communication, Team Building" FontSize="14" Foreground="Black" TextAlignment="Center" Padding="10" TextWrapping="Wrap"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </ScrollViewer>
+                        </Border>
+
+                        <!-- Event 2: Women in Tech and Innovation -->
+                        <Border x:Name="Event2Card" Style="{StaticResource CardHoverStyle}" Background="#6B5B95">
+                            <ScrollViewer x:Name="Event2ScrollViewer" VerticalScrollBarVisibility="Auto">
+                                <StackPanel VerticalAlignment="Center" Margin="10">
+                                    <TextBlock Text="👩‍💻 Women in Tech and Innovation" FontSize="18" Foreground="Black"
+                                    TextAlignment="Center" TextWrapping="Wrap" Padding="10" FontWeight="Bold"/>
+                                    <TextBlock Text="Explore the latest trends in technology and innovation with industry leaders."
+                                    FontSize="14" Foreground="Black" TextAlignment="Center" TextWrapping="Wrap" Padding="10"/>
+                                    <ToggleButton x:Name="LearnMoreButton2" Content="Learn More" Style="{StaticResource LearnMoreButtonStyle}"
+                                    HorizontalAlignment="Center" Margin="0,10,0,0" Checked="LearnMoreButton_Checked" Unchecked="LearnMoreButton_Unchecked"/>
+                                    <!-- Additional Details (Hidden by Default) -->
+                                    <StackPanel x:Name="AdditionalDetails2" Visibility="Collapsed" Margin="0,10,0,0" Background="{StaticResource CardDetailsBackgroundColor}">
+                                        <TextBlock Text="Osprey’s event bridges the gap between women and emerging technologies in sports and entertainment, featuring discussions on AI, VR, and blockchain, while promoting inclusivity and leadership in tech roles." FontSize="14" Foreground="Black" TextAlignment="Center" Padding="10" TextWrapping="Wrap"/>
+                                        <TextBlock Text="📅 Date: November 5, 2023" FontSize="14" Foreground="Black" TextAlignment="Center" Padding="10" TextWrapping="Wrap"/>
+                                        <TextBlock Text="🕒 Time: 9:00 AM - 1:00 PM" FontSize="14" Foreground="Black" TextAlignment="Center" Padding="10" TextWrapping="Wrap"/>
+                                        <TextBlock Text="📍 Location: Osprey HQ, San Francisco" FontSize="14" Foreground="Black" TextAlignment="Center" Padding="10" TextWrapping="Wrap"/>
+                                        <TextBlock Text="💡 Topics: AI, Blockchain, Cloud Computing" FontSize="14" Foreground="Black" TextAlignment="Center" Padding="10" TextWrapping="Wrap"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </ScrollViewer>
+                        </Border>
+
+                        <!-- Event 3: Career Development Bootcamp -->
+                        <Border x:Name="Event3Card" Style="{StaticResource CardHoverStyle}" Background="#88B04B">
+                            <ScrollViewer x:Name="Event3ScrollViewer" VerticalScrollBarVisibility="Auto">
+                                <StackPanel VerticalAlignment="Center" Margin="10">
+                                    <TextBlock Text="🚀 Career Development Bootcamp" FontSize="18" Foreground="Black"
+                                    TextAlignment="Center" TextWrapping="Wrap" Padding="10" FontWeight="Bold"/>
+                                    <TextBlock Text="Accelerate your career with our intensive bootcamp."
+                                    FontSize="14" Foreground="Black" TextAlignment="Center" TextWrapping="Wrap" Padding="10"/>
+                                    <ToggleButton x:Name="LearnMoreButton3" Content="Learn More" Style="{StaticResource LearnMoreButtonStyle}"
+                                    HorizontalAlignment="Center" Margin="0,10,0,0" Checked="LearnMoreButton_Checked" Unchecked="LearnMoreButton_Unchecked"/>
+                                    <!-- Additional Details (Hidden by Default) -->
+                                    <StackPanel x:Name="AdditionalDetails3" Visibility="Collapsed" Margin="0,10,0,0" Background="{StaticResource CardDetailsBackgroundColor}">
+                                        <TextBlock Text="Osprey’s bootcamp empowers women in sports and entertainment by offering leadership training, mentorship, and skills development in areas like networking, resume-building, and personal branding for career growth." FontSize="14" Foreground="Black" TextAlignment="Center" Padding="10" TextWrapping="Wrap"/>
+                                        <TextBlock Text="📅 Date: December 10, 2023" FontSize="14" Foreground="Black" TextAlignment="Center" Padding="10" TextWrapping="Wrap"/>
+                                        <TextBlock Text="🕒 Time: 11:00 AM - 3:00 PM" FontSize="14" Foreground="Black" TextAlignment="Center" Padding="10" TextWrapping="Wrap"/>
+                                        <TextBlock Text="📍 Location: Osprey HQ, Chicago" FontSize="14" Foreground="Black" TextAlignment="Center" Padding="10" TextWrapping="Wrap"/>
+                                        <TextBlock Text="💡 Topics: Resume Building, Interview Skills, Networking" FontSize="14" Foreground="Black" TextAlignment="Center" Padding="10" TextWrapping="Wrap"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </ScrollViewer>
+                        </Border>
+
+                        <!-- Event 4: Q/A Session -->
+                        <Border x:Name="Event4Card" Style="{StaticResource CardHoverStyle}" Background="#FF6F61">
+                            <ScrollViewer x:Name="Event4ScrollViewer" VerticalScrollBarVisibility="Auto">
+                                <StackPanel VerticalAlignment="Center" Margin="10">
+                                    <TextBlock Text="❓ Q/A Session" FontSize="18" Foreground="Black"
+                                    TextAlignment="Center" TextWrapping="Wrap" Padding="10" FontWeight="Bold"/>
+                                    <TextBlock Text="Get your questions answered by experts in the field."
+                                    FontSize="14" Foreground="Black" TextAlignment="Center" TextWrapping="Wrap" Padding="10"/>
+                                    <ToggleButton x:Name="LearnMoreButton4" Content="Learn More" Style="{StaticResource LearnMoreButtonStyle}"
+                                    HorizontalAlignment="Center" Margin="0,10,0,0" Checked="LearnMoreButton_Checked" Unchecked="LearnMoreButton_Unchecked"/>
+                                    <!-- Additional Details (Hidden by Default) -->
+                                    <StackPanel x:Name="AdditionalDetails4" Visibility="Collapsed" Margin="0,10,0,0" Background="{StaticResource CardDetailsBackgroundColor}">
+                                        <TextBlock Text="Osprey’s Q/A Sessions offer women personalized career advice from industry experts, helping them navigate challenges like breaking into the industry, securing sponsorships, and building a strong personal brand." FontSize="14" Foreground="Black" TextAlignment="Center" Padding="10" TextWrapping="Wrap"/>
+                                        <TextBlock Text="📅 Date: January 20, 2024" FontSize="14" Foreground="Black" TextAlignment="Center" Padding="10" TextWrapping="Wrap"/>
+                                        <TextBlock Text="🕒 Time: 2:00 PM - 4:00 PM" FontSize="14" Foreground="Black" TextAlignment="Center" Padding="10" TextWrapping="Wrap"/>
+                                        <TextBlock Text="📍 Location: Osprey HQ, Online" FontSize="14" Foreground="Black" TextAlignment="Center" Padding="10" TextWrapping="Wrap"/>
+                                        <TextBlock Text="💡 Topics: Career Advice, Industry Trends, Mentorship" FontSize="14" Foreground="Black" TextAlignment="Center" Padding="10" TextWrapping="Wrap"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </ScrollViewer>
+                        </Border>
+                    </StackPanel>
+                    
+                    <!-- Book Event Button -->
+                    <Button Content="Book Event"
+                    Background="#FF6F61" Foreground="White"
+                    FontSize="18" FontWeight="Bold"
+                    HorizontalAlignment="Center" Padding="10,5"
+                    Margin="0,20,0,10"
+                    Cursor="Hand"
+                    Click="BookEventButton_Click" Height="50" Width="161"/>
+                </StackPanel>
+                
+
+                <!-- Features Section -->
+                <StackPanel Grid.Row="2" Background="{StaticResource AccentColor}" Margin="0,20,0,20">
+                    <TextBlock Text="Why Choose Osprey?" FontSize="36" Foreground="White"
+                    FontWeight="Bold" HorizontalAlignment="Center" Margin="0,20,0,20"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Border Background="White" CornerRadius="10" Width="250" Margin="10">
+                            <TextBlock Text="🚀 Fast and Reliable" FontSize="18" Foreground="Black"
+                            TextAlignment="Center" Padding="20" TextWrapping="Wrap"/>
+                        </Border>
+                        <Border Background="White" CornerRadius="10" Width="250" Margin="10">
+                            <TextBlock Text="🔒 Secure and Private" FontSize="18" Foreground="Black"
+                            TextAlignment="Center" Padding="20" TextWrapping="Wrap"/>
+                        </Border>
+                        <Border Background="White" CornerRadius="10" Width="250" Margin="10">
+                            <TextBlock Text="🌍 Global Access" FontSize="18" Foreground="Black"
+                            TextAlignment="Center" Padding="20" TextWrapping="Wrap"/>
+                        </Border>
+                    </StackPanel>
+                </StackPanel>
+
+                <!-- Testimonials Section -->
+                <StackPanel Grid.Row="3" Background="#1A1A2E">
+                    <TextBlock Text="What Our Users Say" FontSize="36" Foreground="White"
+                    FontWeight="Bold" HorizontalAlignment="Center" Margin="0,20,0,20"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Border Background="White" CornerRadius="10" Width="250" Margin="10">
+                            <TextBlock Text="🔥 'Osprey is life-changing!'" FontSize="18"
+                            Foreground="Black" TextAlignment="Center" Padding="20" TextWrapping="Wrap"/>
+                        </Border>
+                        <Border Background="White" CornerRadius="10" Width="250" Margin="10">
+                            <TextBlock Text="💡 'The best platform I have ever used!'" FontSize="18"
+                            Foreground="Black" TextAlignment="Center" Padding="20" TextWrapping="Wrap"/>
+                        </Border>
+                        <Border Background="White" CornerRadius="10" Width="250" Margin="10">
+                            <TextBlock Text="🌟 'Highly recommend it!'" FontSize="18"
+                            Foreground="Black" TextAlignment="Center" Padding="20" TextWrapping="Wrap"/>
+                        </Border>
+                    </StackPanel>
+                </StackPanel>
+
+               
+
+                <!-- Footer Section -->
+                <StackPanel Grid.Row="5" Background="#0F4B6E" Margin="0,20,0,0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Left Section: Quick Links -->
+                        <StackPanel Grid.Column="0" HorizontalAlignment="Center" Margin="20">
+                            <TextBlock Text="Quick Links" Foreground="White" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+                            <StackPanel>
+                                <Button Content="Home" Foreground="White" Background="Transparent" BorderThickness="0" Cursor="Hand" HorizontalAlignment="Left"/>
+                                <Button Content="Events" Foreground="White" Background="Transparent" BorderThickness="0" Cursor="Hand" HorizontalAlignment="Left"/>
+                                <Button Content="About Us" Foreground="White" Background="Transparent" BorderThickness="0" Cursor="Hand" HorizontalAlignment="Left"/>
+                                <Button Content="Contact" Foreground="White" Background="Transparent" BorderThickness="0" Cursor="Hand" HorizontalAlignment="Left"/>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <!-- Middle Section: Social Media Logos (SVG) -->
+                        <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20">
+                            <TextBlock Text="Follow Us" Foreground="White" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+                            <StackPanel Orientation="Horizontal">
+                                <!-- Facebook Logo -->
+                                <Button Background="Transparent" BorderThickness="0" Cursor="Hand" Margin="10">
+                                    <Viewbox Width="30" Height="30">
+                                        <Path Data="M6.18182 10.3333C5.20406 10.3333 5 10.5252 5 11.4444V13.1111C5 14.0304 5.20406 14.2222 6.18182 14.2222H8.54545V20.8889C8.54545 21.8081 8.74951 22 9.72727 22H12.0909C13.0687 22 13.2727 21.8081 13.2727 20.8889V14.2222H15.9267C16.6683 14.2222 16.8594 14.0867 17.0631 13.4164L17.5696 11.7497C17.9185 10.6014 17.7035 10.3333 16.4332 10.3333H13.2727V7.55556C13.2727 6.94191 13.8018 6.44444 14.4545 6.44444H17.8182C18.7959 6.44444 19 6.25259 19 5.33333V3.11111C19 2.19185 18.7959 2 17.8182 2H14.4545C11.191 2 8.54545 4.48731 8.54545 7.55556V10.3333H6.18182Z"
+                                        Fill="Black" Stroke="White" StrokeThickness="1.5" StrokeLineJoin="Round"/>
+                                    </Viewbox>
+                                </Button>
+                                <!-- TikTok Logo -->
+                                <Button Background="Transparent" BorderThickness="0" Cursor="Hand" Margin="10">
+                                    <Viewbox Width="30" Height="30">
+                                        <Path Data="M2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12Z M10.5359 11.0075C9.71585 10.8916 7.84666 11.0834 6.93011 12.7782C6.01355 14.4729 6.9373 16.2368 7.51374 16.9069C8.08298 17.5338 9.89226 18.721 11.8114 17.5619C12.2871 17.2746 12.8797 17.0603 13.552 14.8153L13.4738 5.98145C13.3441 6.95419 14.4186 9.23575 17.478 9.5057"
+                                        Fill="Black" Stroke="White" StrokeThickness="1.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round"/>
+                                    </Viewbox>
+                                </Button>
+                                <!-- YouTube Logo -->
+                                <Button Background="Transparent" BorderThickness="0" Cursor="Hand" Margin="10">
+                                    <Viewbox Width="30" Height="30">
+                                        <Path Data="M12 20.5C13.8097 20.5 15.5451 20.3212 17.1534 19.9934C19.1623 19.5839 20.1668 19.3791 21.0834 18.2006C22 17.0221 22 15.6693 22 12.9635V11.0365C22 8.33073 22 6.97787 21.0834 5.79937C20.1668 4.62088 19.1623 4.41613 17.1534 4.00662C15.5451 3.67877 13.8097 3.5 12 3.5C10.1903 3.5 8.45489 3.67877 6.84656 4.00662C4.83766 4.41613 3.83321 4.62088 2.9166 5.79937C2 6.97787 2 8.33073 2 11.0365V12.9635C2 15.6693 2 17.0221 2.9166 18.2006C3.83321 19.3791 4.83766 19.5839 6.84656 19.9934C8.45489 20.3212 10.1903 20.5 12 20.5Z M15.9621 12.3129C15.8137 12.9187 15.0241 13.3538 13.4449 14.2241C11.7272 15.1705 10.8684 15.6438 10.1728 15.4615C9.9372 15.3997 9.7202 15.2911 9.53799 15.1438C9 14.7089 9 13.8059 9 12C9 10.1941 9 9.29112 9.53799 8.85618C9.7202 8.70886 9.9372 8.60029 10.1728 8.53854C10.8684 8.35621 11.7272 8.82945 13.4449 9.77593C15.0241 10.6462 15.8137 11.0813 15.9621 11.6871C16.0126 11.8933 16.0126 12.1067 15.9621 12.3129Z"
+                                        Fill="Black" Stroke="White" StrokeThickness="1.5" StrokeLineJoin="Round"/>
+                                    </Viewbox>
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <!-- Right Section: Contact Info -->
+                        <StackPanel Grid.Column="2" HorizontalAlignment="Center" Margin="20">
+                            <TextBlock Text="Contact Us" Foreground="White" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+                            <TextBlock Text="Email: info@osprey.com" Foreground="White" FontSize="14" Margin="0,5"/>
+                            <TextBlock Text="Phone: +1 (123) 456-7890" Foreground="White" FontSize="14" Margin="0,5"/>
+                            <TextBlock Text="Address: 123 Osprey St, New York, NY" Foreground="White" FontSize="14" Margin="0,5"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <!-- Copyright Notice -->
+                    <TextBlock Text="© 2023 Osprey. All rights reserved." Foreground="White" FontSize="14" HorizontalAlignment="Center" Margin="0,20,0,10"/>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+
+        <!-- Chatbot Toggle Button -->
+        <ToggleButton x:Name="ChatbotToggleButton" Width="70" Height="60" 
+        Background="#1A1A2E" Foreground="White" FontSize="40"
+        VerticalAlignment="Bottom" HorizontalAlignment="Right"
+        Margin="0,20,-30,0" Padding="0" BorderThickness="0"
+        Checked="ChatbotToggleButton_Checked" Unchecked="ChatbotToggleButton_Unchecked">
+            <TextBlock Text="🤖" />
+            <!-- Chatbot icon -->
+        </ToggleButton>
+
+        <!-- Chatbot Panel (positioned absolutely) -->
+        <Border x:Name="ChatbotPanel" Width="300" Height="400"
+        Background="WhiteSmoke" Padding="10" CornerRadius="10"
+        VerticalAlignment="Bottom" HorizontalAlignment="Right"
+        Margin="0,70,20,0" Visibility="Collapsed">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <!-- Chatbot Header -->
+                    <RowDefinition Height="*" />
+                    <!-- Chat Messages -->
+                    <RowDefinition Height="Auto" />
+                    <!-- Input Box -->
+                </Grid.RowDefinitions>
+
+                <!-- Chatbot Header with Close Button -->
+                <Border Background="#1A1A2E" CornerRadius="5" Padding="10">
+                    <Grid>
+                        <TextBlock Text="AI Assistant" Foreground="White" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" />
+                        <Button x:Name="CloseChatbotButton" Content="✕" Foreground="White" FontSize="14"
+                        Background="Transparent" BorderThickness="0" HorizontalAlignment="Right"
+                        VerticalAlignment="Center" Padding="0" Click="CloseChatbotButton_Click" />
+                    </Grid>
+                </Border>
+
+                <!-- Chat Messages -->
+                <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="0,10,0,10" x:Name="ChatScrollViewer">
+                    <StackPanel x:Name="ChatMessagesPanel" />
+                </ScrollViewer>
+
+                <!-- Input Box -->
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- TextBox with Placeholder and Corner Radius -->
+                    <Grid>
+                        <TextBox x:Name="ChatInputBox" Style="{StaticResource RoundedTextBoxStyle}"
+                        TextChanged="ChatInputBox_TextChanged" />
+                        <TextBlock x:Name="PlaceholderText" Text="Type your question here..." Foreground="Gray" FontSize="14"
+                        VerticalAlignment="Center" Margin="10,0,0,0" IsHitTestVisible="False" />
+                    </Grid>
+
+                    <Button Grid.Column="1" Content="Send" Background="#1A1A2E" Foreground="White" FontSize="14"
+                    Padding="10,5" Margin="10,0,0,0" BorderThickness="0"
+                    Click="SendMessage_Click" />
+                </Grid>
+            </Grid>
+        </Border>
+        <Image Height="100" Width="100"/>
+    </Grid>
+</Page>

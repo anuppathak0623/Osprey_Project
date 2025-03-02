@@ -1,0 +1,100 @@
+﻿<Page x:Class="Osprey_Project.EntertainersPage"
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+Title="Entertainers">
+
+    <Page.Background>
+        <!-- Background Image -->
+        <ImageBrush Opacity="1" ImageSource="entertaingirl.jpg" Stretch="UniformToFill"/>
+    </Page.Background>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="20">
+            <!-- Gradient Overlay for Readability -->
+            <Rectangle>
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#66000000" Offset="0.2"/>
+                        <GradientStop Color="Transparent" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+
+            <!-- Main Content Area -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Back Button -->
+                <Button Grid.Row="0" Grid.Column="0" Content="← Back" FontSize="18" Padding="8,4"
+                Background="Transparent" Foreground="White" BorderBrush="White"
+                HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10,10,0"
+                Click="BackButton_Click"/>
+
+                <!-- Title Section -->
+                <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Entertainers"
+                    FontSize="34" FontWeight="Bold" Foreground="Orange"
+                    TextAlignment="Center" FontFamily="Segoe UI" Margin="80,10,0,20"/>
+
+                <!-- Left Side Image -->
+                <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,0,20,0">
+                    <Viewbox Stretch="Uniform" Height="280" Width="450">
+                        <Image Source="/entertain1.jpg" Stretch="UniformToFill"/>
+                    </Viewbox>
+
+                    <Viewbox Stretch="Uniform" Height="280" Width="450" Margin="0,10,0,0">
+                        <Image Source="12.jpg" Stretch="UniformToFill"/>
+                    </Viewbox>
+                </StackPanel>
+
+                <!-- Right Side Content -->
+                <Grid Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                    <Border Background="#BB2A3D5E" Padding="20" CornerRadius="15" Opacity="0.8" Height="500">
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Height="420">
+                            <TextBlock TextWrapping="Wrap" FontSize="18" Foreground="White" Margin="10" TextAlignment="Justify">
+                                <Run Text="Entertainers are at the forefront of creativity and culture, influencing and shaping the way people experience the world through various forms of media. This group includes a broad spectrum of professionals such as musicians, actors, media personalities, and broadcasters. These individuals work in television, film, music, live performances, and digital platforms, captivating audiences with their talent and charisma." />
+                                <LineBreak/><LineBreak/>
+                                <Run Text="From the thrill of a live concert to the powerful storytelling of cinema or the informative discussions on news broadcasts, entertainers have the unique ability to evoke emotions, inspire change, and connect people from all walks of life. Through their craft, they bring joy, spark meaningful conversations, and offer an escape from everyday life." />
+                                <LineBreak/><LineBreak/>
+                                <Run Text="Whether they are performing on a grand stage, producing albums, starring in films, or engaging audiences through social media, entertainers are creators who shape public opinion, introduce new trends, and bring fresh perspectives to mainstream culture. Their work not only entertains but also educates, informs, and empowers people globally." />
+                                <LineBreak/><LineBreak/>
+                                <Run Text="Beyond their performances, many entertainers also take on roles as entrepreneurs, activists, and philanthropists. They launch their own brands, create media companies, and use their influence to advocate for important social causes. Many artists have leveraged their platforms to support initiatives related to mental health awareness, gender equality, climate change, and education, showing the power of entertainment as a force for good." />
+                                <LineBreak/><LineBreak/>
+                                <Run Text="With the rise of digital media, entertainers now have more ways than ever to reach their audiences. Platforms like YouTube, TikTok, and streaming services have revolutionized how content is consumed, allowing emerging talents to gain global recognition without traditional industry gatekeepers. The democratization of media has given more voices a chance to shine, further diversifying the industry." />
+                                <LineBreak/><LineBreak/>
+                                <Run Text="At Osprey, we recognize the impact and potential of these individuals. We provide entertainers with resources, mentorship, and networking opportunities to help them navigate the complexities of the entertainment industry. Through partnerships with key players in film, music, and media, we strive to empower the next generation of creative professionals, ensuring they have the tools and support needed to succeed." />
+                                <LineBreak/><LineBreak/>
+                                <Run Text="As the industry continues to evolve, one thing remains constant: the power of storytelling and performance to unite people, inspire generations, and leave a lasting cultural impact. Whether through music, film, television, or digital content, entertainers will always be the heartbeat of our shared experiences, pushing boundaries and redefining the future of global entertainment." />
+                            </TextBlock>
+                        </ScrollViewer>
+                    </Border>
+                </Grid>
+
+
+
+
+                <!-- Mission Statement -->
+                <Border Grid.Row="2" Grid.ColumnSpan="2" Background="#882A3D5E" Padding="20" CornerRadius="10" Margin="20">
+                    <TextBlock FontSize="22" FontWeight="Bold" Foreground="White" TextAlignment="Center" TextWrapping="Wrap">
+                        Our mission is to support entertainers in building sustainable and fulfilling careers. We provide opportunities for professional development, mentorship, and financial literacy to ensure that these individuals have the tools they need to thrive.
+                    </TextBlock>
+                </Border>
+
+                <!-- Opportunities & Mentorship -->
+                <Border Grid.Row="3" Grid.ColumnSpan="2" Background="#661A2D4E" Padding="20" CornerRadius="10" Margin="20">
+                    <TextBlock FontSize="20" Foreground="White" TextAlignment="Center" TextWrapping="Wrap">
+                        Osprey offers entertainers access to industry professionals, financial planning resources, and brand-building strategies. By joining our community, entertainers can connect with like-minded individuals, discover new opportunities, and take their careers to new heights.
+                    </TextBlock>
+                </Border>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</Page>
