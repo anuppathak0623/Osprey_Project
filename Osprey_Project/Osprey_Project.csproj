@@ -51,6 +51,12 @@
     <None Remove="Plan.jpg" />
     <None Remove="plan1.jpg" />
     <None Remove="Screenshot 2025-02-18 235101.png" />
+    <None Remove="Spon 1.png" />
+    <None Remove="spon 2.png" />
+    <None Remove="spon 3.jpg" />
+    <None Remove="spon 5.jpeg" />
+    <None Remove="spon 6.jpg" />
+    <None Remove="spon4.jpg" />
     <None Remove="strong-women-quotes-3a-e1554163775231.jpg" />
     <None Remove="three month.png" />
     <None Remove="year.png" />
@@ -102,6 +108,12 @@
     <Resource Include="Plan.jpg" />
     <Resource Include="plan1.jpg" />
     <Resource Include="Screenshot 2025-02-18 235101.png" />
+    <Resource Include="Spon 1.png" />
+    <Resource Include="spon 2.png" />
+    <Resource Include="spon 3.jpg" />
+    <Resource Include="spon 5.jpeg" />
+    <Resource Include="spon 6.jpg" />
+    <Resource Include="spon4.jpg" />
     <Resource Include="strong-women-quotes-3a-e1554163775231.jpg" />
   </ItemGroup>
 

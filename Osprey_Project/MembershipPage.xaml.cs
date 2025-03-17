@@ -92,7 +92,7 @@ namespace Osprey_Project
                 };
 
                 _collection.InsertOne(newUser);
-                MessageBox.Show("Applied successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("You will get an Email for Payment after 15 days of Trial", "Applied successfully!", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {

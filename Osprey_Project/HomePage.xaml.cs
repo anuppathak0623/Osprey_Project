@@ -15,13 +15,13 @@ namespace Osprey_Project
         private int _currentImageIndex = 0;
         private readonly string[] _imageSources =
         {
-            "8.jpg", // Replace with actual image paths
-            "9.jpg",
-            "1.jpg",
-            "2.jpg",
-            "3.jpg",
-            "4.jpg"
-        };
+"8.jpg", // Replace with actual image paths
+"9.jpg",
+"1.jpg",
+"2.jpg",
+"3.jpg",
+"4.jpg"
+};
 
         private readonly DispatcherTimer _imageChangeTimer;
 
@@ -41,6 +41,10 @@ namespace Osprey_Project
             _imageChangeTimer.Start();
 
             StartImageSlider();
+        }
+
+        public HomePage()
+        {
         }
 
         private void StartImageSlider()
@@ -182,7 +186,18 @@ namespace Osprey_Project
             }
         }
 
-
+        private void GoToSocialFeedButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Navigate to the SocialFeedPage
+            if (_mainFrame != null)
+            {
+                _mainFrame.Navigate(new SocialFeedPage());
+            }
+            else
+            {
+                MessageBox.Show("Navigation frame is not available.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
 
         // Chatbot
         private void InitializeChatbot()
@@ -286,8 +301,17 @@ namespace Osprey_Project
             }
         }
 
-
-
-
+        private void Sopnsor_Click(object sender, RoutedEventArgs e)
+        {
+            // Navigate to the BookEventPage
+            if (_mainFrame != null)
+            {
+                _mainFrame.Navigate(new SponsorPage());
+            }
+            else
+            {
+                MessageBox.Show("Navigation frame is not available.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }

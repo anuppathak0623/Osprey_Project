@@ -1,0 +1,195 @@
+﻿<Page x:Class="Osprey_Project.SponsorPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="clr-namespace:Osprey_Project">
+
+    <!-- Background with Gradient -->
+    <Page.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#FF6A00" Offset="0.0"/>
+            <GradientStop Color="#FFCC00" Offset="1.0"/>
+        </LinearGradientBrush>
+    </Page.Background>
+
+    <Grid Width="884">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header Section -->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Grid.Row="0" Margin="0,0,0,20">
+            <TextBlock Text="Our Sponsors"
+                       FontSize="42"
+                       FontWeight="Bold"
+                       Foreground="White"
+                       HorizontalAlignment="Center"
+                       Margin="0,10,0,10"
+                       TextWrapping="Wrap"
+                       MaxWidth="800"
+                       Opacity="0.9"/>
+
+            <TextBlock Text="We are proud to partner with amazing brands and organizations."
+                       FontSize="20"
+                       Foreground="White"
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"
+                       Margin="0,0,0,20"
+                       TextWrapping="Wrap"
+                       MaxWidth="900"
+                       Opacity="0.8"/>
+        </StackPanel>
+
+        <!-- Sponsors Section -->
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="1">
+            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,10">
+
+                <!-- Sponsor 1 -->
+                <Border Width="250" Height="200" Margin="15" Background="White" CornerRadius="16"
+                BorderBrush="#EEEEEE" BorderThickness="1">
+                    <Border.Effect>
+                        <DropShadowEffect Color="#888888" BlurRadius="12" ShadowDepth="5"/>
+                    </Border.Effect>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                        <Image Source="/Spon 1.png" Stretch="Uniform" Height="120" Margin="10"/>
+                        <TextBlock 
+                           FontSize="16" 
+                           Foreground="#333333" 
+                           HorizontalAlignment="Center" 
+                           Margin="0,5,0,0" Height="27"><Run Text="womens.org"/><LineBreak/><Run/></TextBlock>
+                    </StackPanel>
+                </Border>
+
+                <!-- Sponsor 2 -->
+                <Border Width="250" Height="200" Margin="15" Background="White" CornerRadius="16"
+                BorderBrush="#EEEEEE" BorderThickness="1">
+                    <Border.Effect>
+                        <DropShadowEffect Color="#888888" BlurRadius="12" ShadowDepth="5"/>
+                    </Border.Effect>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                        <Image Source="/spon 2.png" Stretch="Uniform" Height="120" Margin="10"/>
+                        <TextBlock Text="Niagara College Toronto" 
+                           FontSize="16" 
+                           Foreground="#333333" 
+                           HorizontalAlignment="Center" 
+                           Margin="0,5,0,0"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Sponsor 3 -->
+                <Border Width="250" Height="200" Margin="15" Background="White" CornerRadius="16"
+                BorderBrush="#EEEEEE" BorderThickness="1">
+                    <Border.Effect>
+                        <DropShadowEffect Color="#888888" BlurRadius="12" ShadowDepth="5"/>
+                    </Border.Effect>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                        <Image Source="/spon 3.jpg" Stretch="Uniform" Height="120" Margin="10"/>
+                        <TextBlock 
+                           FontSize="16" 
+                           Foreground="#333333" 
+                           HorizontalAlignment="Center" 
+                           Margin="0,5,0,0"><Run Text="Your Crown Hair Extension"/><LineBreak/><Run/></TextBlock>
+                    </StackPanel>
+                </Border>
+
+                <!-- Sponsor 4 -->
+                <Border Width="250" Height="200" Margin="15" Background="White" CornerRadius="16"
+                BorderBrush="#EEEEEE" BorderThickness="1">
+                    <Border.Effect>
+                        <DropShadowEffect Color="#888888" BlurRadius="12" ShadowDepth="5"/>
+                    </Border.Effect>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                        <Image Source="/spon4.jpg" Stretch="Uniform" Height="120" Margin="10"/>
+                        <TextBlock Text="LuluLemon" 
+                           FontSize="16" 
+                           Foreground="#333333" 
+                           HorizontalAlignment="Center" 
+                           Margin="0,5,0,0"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Sponsor 5 -->
+                <Border Width="250" Height="200" Margin="15" Background="White" CornerRadius="16"
+                BorderBrush="#EEEEEE" BorderThickness="1">
+                    <Border.Effect>
+                        <DropShadowEffect Color="#888888" BlurRadius="12" ShadowDepth="5"/>
+                    </Border.Effect>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                        <Image Source="/spon 5.jpeg" Stretch="Uniform" Height="120" Margin="10"/>
+                        <TextBlock Text="Fit 4 Less" 
+                           FontSize="16" 
+                           Foreground="#333333" 
+                           HorizontalAlignment="Center" 
+                           Margin="0,5,0,0"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Sponsor 6 -->
+                <Border Width="250" Height="200" Margin="15" Background="White" CornerRadius="16"
+                BorderBrush="#EEEEEE" BorderThickness="1">
+                    <Border.Effect>
+                        <DropShadowEffect Color="#888888" BlurRadius="12" ShadowDepth="5"/>
+                    </Border.Effect>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                        <Image Source="/spon 6.jpg" Stretch="Uniform" Height="120" Margin="10"/>
+                        <TextBlock 
+                           FontSize="16" 
+                           Foreground="#333333" 
+                           HorizontalAlignment="Center" 
+                           Margin="0,5,0,0"><Run Text="Wonderland"/><LineBreak/><Run/></TextBlock>
+                    </StackPanel>
+                </Border>
+
+            </WrapPanel>
+        </ScrollViewer>
+
+        <!-- CTA Section -->
+        <Button Content="Become a Sponsor"
+                FontSize="18"
+                FontWeight="Bold"
+                Background="#FF6A00"
+                Foreground="White"
+                Padding="12,6"
+                Margin="0,20,0,20"
+                Width="220"
+                Cursor="Hand"
+                BorderThickness="0"
+                HorizontalAlignment="Center"
+                Grid.Row="2"
+                Click="BecomeSponsor_Click">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Opacity" Value="1"/>
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="1" ScaleY="1"/>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <!-- Hover Animation -->
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="Opacity" To="0.8" Duration="0:0:0.2"/>
+                                    <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" To="1.1" Duration="0:0:0.2"/>
+                                    <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" To="1.1" Duration="0:0:0.2"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.2"/>
+                                    <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" To="1" Duration="0:0:0.2"/>
+                                    <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" To="1" Duration="0:0:0.2"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
+    </Grid>
+</Page>

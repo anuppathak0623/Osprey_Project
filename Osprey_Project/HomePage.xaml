@@ -103,9 +103,9 @@ Background="#1A1A2E">
                 <Setter.Value>
                     <ControlTemplate TargetType="TextBox">
                         <Border Background="{TemplateBinding Background}"
-CornerRadius="5"
-BorderThickness="{TemplateBinding BorderThickness}"
-BorderBrush="{TemplateBinding BorderBrush}">
+                            CornerRadius="5"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}">
                             <ScrollViewer x:Name="PART_ContentHost" />
                         </Border>
                     </ControlTemplate>
@@ -152,25 +152,25 @@ BorderBrush="{TemplateBinding BorderBrush}">
                     <Image x:Name="ImageSlider" Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="1"/>
 
                     <TextBlock Text="Welcome to Osprey"
-                    Foreground="Goldenrod" FontSize="50" FontWeight="Bold"
-                    HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        Foreground="Goldenrod" FontSize="50" FontWeight="Bold"
+                        HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Grid>
 
                 <!-- Events Section -->
                 <StackPanel Grid.Row="1" Background="#0F4B6E" Margin="10,0,-10,40">
                     <TextBlock Text="Explore Our Events" FontSize="36" Foreground="White"
-                    FontWeight="Bold" HorizontalAlignment="Center" Margin="0,20,0,20"/>
+                        FontWeight="Bold" HorizontalAlignment="Center" Margin="0,20,0,20"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <!-- Event 1: Women in Leadership Workshop -->
                         <Border x:Name="Event1Card" Style="{StaticResource CardHoverStyle}" Background="#FF6F61">
                             <ScrollViewer x:Name="Event1ScrollViewer" VerticalScrollBarVisibility="Auto">
                                 <StackPanel VerticalAlignment="Center" Margin="10">
                                     <TextBlock Text="👩‍💼 Women in Leadership Workshop" FontSize="18" Foreground="Black"
-                                    TextAlignment="Center" TextWrapping="Wrap" Padding="10" FontWeight="Bold"/>
+                                        TextAlignment="Center" TextWrapping="Wrap" Padding="10" FontWeight="Bold"/>
                                     <TextBlock Text="Join us for an inspiring workshop on leadership skills for women."
-                                    FontSize="14" Foreground="Black" TextAlignment="Center" TextWrapping="Wrap" Padding="10"/>
+                                        FontSize="14" Foreground="Black" TextAlignment="Center" TextWrapping="Wrap" Padding="10"/>
                                     <ToggleButton x:Name="LearnMoreButton1" Content="Learn More" Style="{StaticResource LearnMoreButtonStyle}"
-                                    HorizontalAlignment="Center" Margin="0,10,0,0" Checked="LearnMoreButton_Checked" Unchecked="LearnMoreButton_Unchecked"/>
+                                        HorizontalAlignment="Center" Margin="0,10,0,0" Checked="LearnMoreButton_Checked" Unchecked="LearnMoreButton_Unchecked"/>
                                     <!-- Additional Details (Hidden by Default) -->
                                     <StackPanel x:Name="AdditionalDetails1" Visibility="Collapsed" Margin="0,10,0,0" Background="{StaticResource CardDetailsBackgroundColor}">
                                         <TextBlock Text="Empower your leadership potential and enhance your skills at our Women in Leadership Workshop, where innovation meets inspiration and you'll gain the tools, resources, and network you need to excel." FontSize="14" Foreground="Black" TextAlignment="Center" Padding="10" TextWrapping="Wrap"/>
@@ -188,11 +188,11 @@ BorderBrush="{TemplateBinding BorderBrush}">
                             <ScrollViewer x:Name="Event2ScrollViewer" VerticalScrollBarVisibility="Auto">
                                 <StackPanel VerticalAlignment="Center" Margin="10">
                                     <TextBlock Text="👩‍💻 Women in Tech and Innovation" FontSize="18" Foreground="Black"
-                                    TextAlignment="Center" TextWrapping="Wrap" Padding="10" FontWeight="Bold"/>
+                                        TextAlignment="Center" TextWrapping="Wrap" Padding="10" FontWeight="Bold"/>
                                     <TextBlock Text="Explore the latest trends in technology and innovation with industry leaders."
-                                    FontSize="14" Foreground="Black" TextAlignment="Center" TextWrapping="Wrap" Padding="10"/>
+                                        FontSize="14" Foreground="Black" TextAlignment="Center" TextWrapping="Wrap" Padding="10"/>
                                     <ToggleButton x:Name="LearnMoreButton2" Content="Learn More" Style="{StaticResource LearnMoreButtonStyle}"
-                                    HorizontalAlignment="Center" Margin="0,10,0,0" Checked="LearnMoreButton_Checked" Unchecked="LearnMoreButton_Unchecked"/>
+                                        HorizontalAlignment="Center" Margin="0,10,0,0" Checked="LearnMoreButton_Checked" Unchecked="LearnMoreButton_Unchecked"/>
                                     <!-- Additional Details (Hidden by Default) -->
                                     <StackPanel x:Name="AdditionalDetails2" Visibility="Collapsed" Margin="0,10,0,0" Background="{StaticResource CardDetailsBackgroundColor}">
                                         <TextBlock Text="Osprey’s event bridges the gap between women and emerging technologies in sports and entertainment, featuring discussions on AI, VR, and blockchain, while promoting inclusivity and leadership in tech roles." FontSize="14" Foreground="Black" TextAlignment="Center" Padding="10" TextWrapping="Wrap"/>
@@ -212,7 +212,7 @@ BorderBrush="{TemplateBinding BorderBrush}">
                                     <TextBlock Text="🚀 Career Development Bootcamp" FontSize="18" Foreground="Black"
                                     TextAlignment="Center" TextWrapping="Wrap" Padding="10" FontWeight="Bold"/>
                                     <TextBlock Text="Accelerate your career with our intensive bootcamp."
-                                    FontSize="14" Foreground="Black" TextAlignment="Center" TextWrapping="Wrap" Padding="10"/>
+                                        FontSize="14" Foreground="Black" TextAlignment="Center" TextWrapping="Wrap" Padding="10"/>
                                     <ToggleButton x:Name="LearnMoreButton3" Content="Learn More" Style="{StaticResource LearnMoreButtonStyle}"
                                     HorizontalAlignment="Center" Margin="0,10,0,0" Checked="LearnMoreButton_Checked" Unchecked="LearnMoreButton_Unchecked"/>
                                     <!-- Additional Details (Hidden by Default) -->
@@ -236,7 +236,7 @@ BorderBrush="{TemplateBinding BorderBrush}">
                                     <TextBlock Text="Get your questions answered by experts in the field."
                                     FontSize="14" Foreground="Black" TextAlignment="Center" TextWrapping="Wrap" Padding="10"/>
                                     <ToggleButton x:Name="LearnMoreButton4" Content="Learn More" Style="{StaticResource LearnMoreButtonStyle}"
-                                    HorizontalAlignment="Center" Margin="0,10,0,0" Checked="LearnMoreButton_Checked" Unchecked="LearnMoreButton_Unchecked"/>
+                                        HorizontalAlignment="Center" Margin="0,10,0,0" Checked="LearnMoreButton_Checked" Unchecked="LearnMoreButton_Unchecked"/>
                                     <!-- Additional Details (Hidden by Default) -->
                                     <StackPanel x:Name="AdditionalDetails4" Visibility="Collapsed" Margin="0,10,0,0" Background="{StaticResource CardDetailsBackgroundColor}">
                                         <TextBlock Text="Osprey’s Q/A Sessions offer women personalized career advice from industry experts, helping them navigate challenges like breaking into the industry, securing sponsorships, and building a strong personal brand." FontSize="14" Foreground="Black" TextAlignment="Center" Padding="10" TextWrapping="Wrap"/>
@@ -249,26 +249,33 @@ BorderBrush="{TemplateBinding BorderBrush}">
                             </ScrollViewer>
                         </Border>
                     </StackPanel>
-                    
+
                     <!-- Book Event Button -->
                     <Button Content="Book Event"
-                    Background="#FF6F61" Foreground="White"
-                    FontSize="18" FontWeight="Bold"
-                    HorizontalAlignment="Center" Padding="10,5"
-                    Margin="0,20,0,10"
-                    Cursor="Hand"
-                    Click="BookEventButton_Click" Height="50" Width="161"/>
+                        Background="#FF6F61" Foreground="White"
+                        FontSize="18" FontWeight="Bold"
+                        HorizontalAlignment="Center" Padding="10,5"
+                        Margin="0,20,0,10"
+                        Cursor="Hand"
+                        Click="BookEventButton_Click" Height="50" Width="161"/>
+                    <Button Content="Our Sponsor and Brand Partners"
+                        Background="#FF6F61" Foreground="White"
+                        FontSize="18" FontWeight="Bold"
+                        HorizontalAlignment="Center" Padding="10,5"
+                        Margin="0,20,0,10"
+                        Cursor="Hand"
+                        Click="Sopnsor_Click" Height="50" Width="359"/>
                 </StackPanel>
-                
+
 
                 <!-- Features Section -->
                 <StackPanel Grid.Row="2" Background="{StaticResource AccentColor}" Margin="0,20,0,20">
                     <TextBlock Text="Why Choose Osprey?" FontSize="36" Foreground="White"
-                    FontWeight="Bold" HorizontalAlignment="Center" Margin="0,20,0,20"/>
+                        FontWeight="Bold" HorizontalAlignment="Center" Margin="0,20,0,20"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <Border Background="White" CornerRadius="10" Width="250" Margin="10">
                             <TextBlock Text="🚀 Fast and Reliable" FontSize="18" Foreground="Black"
-                            TextAlignment="Center" Padding="20" TextWrapping="Wrap"/>
+                                TextAlignment="Center" Padding="20" TextWrapping="Wrap"/>
                         </Border>
                         <Border Background="White" CornerRadius="10" Width="250" Margin="10">
                             <TextBlock Text="🔒 Secure and Private" FontSize="18" Foreground="Black"
@@ -284,7 +291,7 @@ BorderBrush="{TemplateBinding BorderBrush}">
                 <!-- Testimonials Section -->
                 <StackPanel Grid.Row="3" Background="#1A1A2E">
                     <TextBlock Text="What Our Users Say" FontSize="36" Foreground="White"
-                    FontWeight="Bold" HorizontalAlignment="Center" Margin="0,20,0,20"/>
+                        FontWeight="Bold" HorizontalAlignment="Center" Margin="0,20,0,20"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <Border Background="White" CornerRadius="10" Width="250" Margin="10">
                             <TextBlock Text="🔥 'Osprey is life-changing!'" FontSize="18"
@@ -301,7 +308,34 @@ BorderBrush="{TemplateBinding BorderBrush}">
                     </StackPanel>
                 </StackPanel>
 
-               
+                <!-- Social Feed Section -->
+                <StackPanel Grid.Row="4" Background="#1A1A2E" Margin="0,20,0,20">
+                    <TextBlock Text="Join Our Community" FontSize="36" Foreground="White"
+                        FontWeight="Bold" HorizontalAlignment="Center" Margin="0,20,0,20"/>
+                    <TextBlock Text="Connect with others, share your thoughts, and stay updated!"
+                        FontSize="18" Foreground="White" HorizontalAlignment="Center" TextAlignment="Center"
+                        Margin="20,0,20,20" TextWrapping="Wrap"/>
+
+                    <!-- Social Feed Button with Icon -->
+                    <Button x:Name="GoToSocialFeedButton" Content="Go to Social Feed"
+                        Background="#FF6F61" Foreground="White" FontSize="18" FontWeight="Bold"
+                        HorizontalAlignment="Center" Padding="20,10" Margin="0,0,0,20" Cursor="Hand"
+                        Click="GoToSocialFeedButton_Click">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}" CornerRadius="10" Padding="10">
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Path Data="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z"
+                                        Fill="White" Width="20" Height="20" Margin="0,0,10,0"/>
+                                        <ContentPresenter VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </StackPanel>
+
+
 
                 <!-- Footer Section -->
                 <StackPanel Grid.Row="5" Background="#0F4B6E" Margin="0,20,0,0">
@@ -338,14 +372,14 @@ BorderBrush="{TemplateBinding BorderBrush}">
                                 <Button Background="Transparent" BorderThickness="0" Cursor="Hand" Margin="10">
                                     <Viewbox Width="30" Height="30">
                                         <Path Data="M2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12Z M10.5359 11.0075C9.71585 10.8916 7.84666 11.0834 6.93011 12.7782C6.01355 14.4729 6.9373 16.2368 7.51374 16.9069C8.08298 17.5338 9.89226 18.721 11.8114 17.5619C12.2871 17.2746 12.8797 17.0603 13.552 14.8153L13.4738 5.98145C13.3441 6.95419 14.4186 9.23575 17.478 9.5057"
-                                        Fill="Black" Stroke="White" StrokeThickness="1.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round"/>
+                                            Fill="Black" Stroke="White" StrokeThickness="1.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round"/>
                                     </Viewbox>
                                 </Button>
                                 <!-- YouTube Logo -->
                                 <Button Background="Transparent" BorderThickness="0" Cursor="Hand" Margin="10">
                                     <Viewbox Width="30" Height="30">
                                         <Path Data="M12 20.5C13.8097 20.5 15.5451 20.3212 17.1534 19.9934C19.1623 19.5839 20.1668 19.3791 21.0834 18.2006C22 17.0221 22 15.6693 22 12.9635V11.0365C22 8.33073 22 6.97787 21.0834 5.79937C20.1668 4.62088 19.1623 4.41613 17.1534 4.00662C15.5451 3.67877 13.8097 3.5 12 3.5C10.1903 3.5 8.45489 3.67877 6.84656 4.00662C4.83766 4.41613 3.83321 4.62088 2.9166 5.79937C2 6.97787 2 8.33073 2 11.0365V12.9635C2 15.6693 2 17.0221 2.9166 18.2006C3.83321 19.3791 4.83766 19.5839 6.84656 19.9934C8.45489 20.3212 10.1903 20.5 12 20.5Z M15.9621 12.3129C15.8137 12.9187 15.0241 13.3538 13.4449 14.2241C11.7272 15.1705 10.8684 15.6438 10.1728 15.4615C9.9372 15.3997 9.7202 15.2911 9.53799 15.1438C9 14.7089 9 13.8059 9 12C9 10.1941 9 9.29112 9.53799 8.85618C9.7202 8.70886 9.9372 8.60029 10.1728 8.53854C10.8684 8.35621 11.7272 8.82945 13.4449 9.77593C15.0241 10.6462 15.8137 11.0813 15.9621 11.6871C16.0126 11.8933 16.0126 12.1067 15.9621 12.3129Z"
-                                        Fill="Black" Stroke="White" StrokeThickness="1.5" StrokeLineJoin="Round"/>
+                                            Fill="Black" Stroke="White" StrokeThickness="1.5" StrokeLineJoin="Round"/>
                                     </Viewbox>
                                 </Button>
                             </StackPanel>
@@ -367,20 +401,20 @@ BorderBrush="{TemplateBinding BorderBrush}">
         </ScrollViewer>
 
         <!-- Chatbot Toggle Button -->
-        <ToggleButton x:Name="ChatbotToggleButton" Width="70" Height="60" 
-        Background="#1A1A2E" Foreground="White" FontSize="40"
-        VerticalAlignment="Bottom" HorizontalAlignment="Right"
-        Margin="0,20,-30,0" Padding="0" BorderThickness="0"
-        Checked="ChatbotToggleButton_Checked" Unchecked="ChatbotToggleButton_Unchecked">
+        <ToggleButton x:Name="ChatbotToggleButton" Width="70" Height="60"
+            Background="#1A1A2E" Foreground="White" FontSize="40"
+            VerticalAlignment="Bottom" HorizontalAlignment="Right"
+            Margin="0,20,-30,0" Padding="0" BorderThickness="0"
+            Checked="ChatbotToggleButton_Checked" Unchecked="ChatbotToggleButton_Unchecked">
             <TextBlock Text="🤖" />
             <!-- Chatbot icon -->
         </ToggleButton>
 
         <!-- Chatbot Panel (positioned absolutely) -->
         <Border x:Name="ChatbotPanel" Width="300" Height="400"
-        Background="WhiteSmoke" Padding="10" CornerRadius="10"
-        VerticalAlignment="Bottom" HorizontalAlignment="Right"
-        Margin="0,70,20,0" Visibility="Collapsed">
+            Background="WhiteSmoke" Padding="10" CornerRadius="10"
+            VerticalAlignment="Bottom" HorizontalAlignment="Right"
+            Margin="0,70,20,0" Visibility="Collapsed">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -396,8 +430,8 @@ BorderBrush="{TemplateBinding BorderBrush}">
                     <Grid>
                         <TextBlock Text="AI Assistant" Foreground="White" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" />
                         <Button x:Name="CloseChatbotButton" Content="✕" Foreground="White" FontSize="14"
-                        Background="Transparent" BorderThickness="0" HorizontalAlignment="Right"
-                        VerticalAlignment="Center" Padding="0" Click="CloseChatbotButton_Click" />
+                    Background="Transparent" BorderThickness="0" HorizontalAlignment="Right"
+                    VerticalAlignment="Center" Padding="0" Click="CloseChatbotButton_Click" />
                     </Grid>
                 </Border>
 
